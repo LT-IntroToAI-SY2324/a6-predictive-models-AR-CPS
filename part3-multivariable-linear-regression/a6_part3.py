@@ -22,3 +22,15 @@ r_squared = round(model.score(x, y),2)
 #actual prices
 print("***************")
 print("Testing Results")
+
+
+predict = model.predict(xtest)
+predict = np.around(predict, 2)
+
+print("\nTesting Multivariable Model with Testing Data:")
+for index in range(len(xtest)):
+    actual = round(ytest[index], 2)
+    predicted_y = predict[index]
+    x_val = xtest[index]
+    x_val = np.around(x_val, 2)
+    print(f"Miles(000): {x_val[0]} Age: {x_val[1]} Actual: {actual} Predicted: {predicted_y}")
