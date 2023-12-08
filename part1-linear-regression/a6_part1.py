@@ -22,10 +22,13 @@ r_squared = model.score(x, y)
 print(coef, intercept, r_squared)
 
 # Print out the linear equation and r squared value
-
+print("Model's Linear Equation: y=",coef, "x+", intercept)
+print("R Squared value:", r_squared)
 # Predict the the blood pressure of someone who is 43 years old.
 # Print out the prediction
-
+x_predict = 43
+prediction = model.predict([[x_predict]])
+print(prediction)
 # Create the model in matplotlib and include the line of best fit
 # sets the size of the graph
 plt.figure(figsize=(6, 4))

@@ -17,6 +17,7 @@ y = data["Species"].values
 #Standardizes the x values
 scaler = StandardScaler().fit(x)
 x = scaler.transform(x)
+print(x)
 
 #Splits the data into a training and testing set
 x_train, x_test, y_train, y_test = train_test_split(x, y)
@@ -32,7 +33,9 @@ print("")
 print(y_test)
 for index in range(len(x_test)):
     x = x_test[index]
+    print(x)
     x = x.reshape(-1, 4)
+    print(x)
     y_pred = int(model.predict(x))
 
     if y_pred == 0:
