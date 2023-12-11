@@ -11,7 +11,7 @@ data = data[["eruptions", "waiting"]]
 x_std = StandardScaler().fit_transform(data)
 
 #sets the value of k and creates kmeans model
-k = 2
+k = 3
 km = KMeans(n_clusters=k).fit(x_std)
 
 #returns centroid x, y values in a 2D array
