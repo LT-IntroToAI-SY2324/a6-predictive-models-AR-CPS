@@ -29,7 +29,7 @@ predict = np.around(predict, 2)
 
 print("\nTesting Multivariable Model with Testing Data:")
 for index in range(len(xtest)):
-    actual = round(ytest[index], 2)
+    actual = ytest[index]
     predicted_y = predict[index]
     x_val = xtest[index]
     x_val = np.around(x_val, 2)

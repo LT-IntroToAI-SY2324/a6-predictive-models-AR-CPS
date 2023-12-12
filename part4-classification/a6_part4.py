@@ -13,9 +13,9 @@ y = data["Purchased"].values
 print(x)
 print(y)
 # Step 2: Standardize the data using StandardScaler, 
-scaler = StandardScaler()
+scaler = StandardScaler().fit(x)
 # Step 3: Transform the data
-scaler.transform(data)
+x = scaler.transform(x)
 # Step 4: Split the data into training and testing data
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size= .2)
 # Step 5: Fit the data
@@ -30,20 +30,20 @@ print(y_test)
 for index in range (len (x_test)):
     x = x_test[index]
     ##print(x)
-    x = x.reshape(-1, 4)
+    x = x.reshape(-1, 3)
     ##print(x)
     y_pred = int(model.predict(x))
 
     
     if y_pred == 0:
-        y_pred = "Iris-setosa"
+        y_pred = "They didn't buy a SUV"
     else :
-        y_pred = "Iris-virginica"
+        y_pred = "They bought a SUV"
     
     actual = y_test[index]
     if actual == 0:
         actual = "They didn't buy a SUV"
     else :
         actual = "They bought a SUV"
-    print("Predicted Species: " + y_pred + " Actual Species: " + actual)
+    print("Predicted purchase: " + y_pred + " | "+ " Actual purchase: " + actual)
     print("")
